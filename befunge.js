@@ -4,7 +4,10 @@ function interpret(code) {
   // step one: turn string into 2d array
   const grid = code.split("\n").map(line => line.split(""))
 
+  // step two: define stack
+  const stack = []
 
+  
 }
 
 interpret(testString)
