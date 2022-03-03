@@ -30,36 +30,36 @@ function interpret(code) {
     } else {
       switch (symbol) {
         case "+":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(a + b);
           break;
         case "-":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(b - a);
           break;
         case "*":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(a * b);
           break;
         case "/":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(b / a);
           break;
         case "%":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(b % a);
           break;
         case "!":
           stack.push(+!!stack.pop());
           break;
         case "`":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(b > a);
           break;
         case ">":
@@ -78,25 +78,26 @@ function interpret(code) {
           state.direction = [">", "<", "^", "v"][Math.floor(Math.random() * 4)];
           break;
         case "_":
-          const x = stack.pop();
+          let x = stack.pop();
           state.direction = x
             ? (state.direction = "<")
             : (state.direction = ">");
           break;
         case "|":
-          const x = stack.pop();
+          let x = stack.pop();
           state.direction = x
             ? (state.direction = "^")
             : (state.direction = "v");
           break;
         case '"':
           state.stringMode = !state.stringMode
+          break
         case ":":
           stack.push(stack[stack.length ? stack.length - 1 : 0]);
           break;
         case "\\":
-          const a = stack.pop();
-          const b = stack.pop();
+          let a = stack.pop();
+          let b = stack.pop();
           stack.push(b);
           stack.push(a);
           break;
@@ -104,18 +105,16 @@ function interpret(code) {
           stack.push();
           break;
         case ".":
-          const x = stack.pop();
+          let x = stack.pop();
           output.push(x);
           break;
         case ",":
-          const x = stack.pop();
-          output.push();
+          let x = stack.pop();
+          output.push(String.fromCharCode(x));
           break;
         case "p":
         // TODO
         case "g":
-        // TODO
-        case "@":
         // TODO
         case " ":
           break;
