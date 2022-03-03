@@ -35,32 +35,32 @@ function interpret(code) {
           stack.push(a + b);
           break;
         case "-":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(b - a);
+          let c = stack.pop();
+          let d = stack.pop();
+          stack.push(d - c);
           break;
         case "*":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(a * b);
+          let e = stack.pop();
+          let f = stack.pop();
+          stack.push(e * f);
           break;
         case "/":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(b / a);
+          let g = stack.pop();
+          let h = stack.pop();
+          stack.push(h / g);
           break;
         case "%":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(b % a);
+          let i = stack.pop();
+          let j = stack.pop();
+          stack.push(j % i);
           break;
         case "!":
           stack.push(+!!stack.pop());
           break;
         case "`":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(b > a);
+          let k = stack.pop();
+          let l = stack.pop();
+          stack.push(l > k);
           break;
         case ">":
           state.direction = ">";
@@ -78,14 +78,14 @@ function interpret(code) {
           state.direction = [">", "<", "^", "v"][Math.floor(Math.random() * 4)];
           break;
         case "_":
-          let x = stack.pop();
-          state.direction = x
+          let m = stack.pop();
+          state.direction = m
             ? (state.direction = "<")
             : (state.direction = ">");
           break;
         case "|":
-          let x = stack.pop();
-          state.direction = x
+          let n = stack.pop();
+          state.direction = n
             ? (state.direction = "^")
             : (state.direction = "v");
           break;
@@ -96,21 +96,21 @@ function interpret(code) {
           stack.push(stack[stack.length ? stack.length - 1 : 0]);
           break;
         case "\\":
-          let a = stack.pop();
-          let b = stack.pop();
-          stack.push(b);
-          stack.push(a);
+          let o = stack.pop();
+          let p = stack.pop();
+          stack.push(p);
+          stack.push(o);
           break;
         case "$":
           stack.push();
           break;
         case ".":
-          let x = stack.pop();
-          output.push(x);
+          let q = stack.pop();
+          output.push(q);
           break;
         case ",":
-          let x = stack.pop();
-          output.push(String.fromCharCode(x));
+          let r = stack.pop();
+          output.push(String.fromCharCode(r));
           break;
         case "p":
         // TODO
