@@ -1,6 +1,6 @@
 /* 
 note: At every step, I need to know two things:
-1. What do I do?
+1. Where am I?
 2. Which direction am I going?
 
 */
@@ -19,7 +19,7 @@ function interpret(code) {
   const state = {
     x: 0,
     y: 0,
-    direction: ">"
+    direction: ">",
   }
   
   // step four: define symbols
@@ -111,6 +111,24 @@ function interpret(code) {
         // TODO
       case " ":
         break
+    }
+  }
+
+  // step five: define movement
+  function doMove(direction) {
+    switch (direction) {
+      
+    }
+  }
+
+  // step five: define cycle
+  while(1) {
+    let symbol = grid[state.x][state.y]
+    if (symbol === "@") {
+      return output
+    } else {
+      doSymbol(symbol)
+
     }
   }
 
